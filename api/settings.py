@@ -31,16 +31,18 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'drf_spectacular',
-    'rest_framework',
-    'api',
-    'teams',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'drf_spectacular',
+    'api',
+    'teams',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -54,6 +56,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'api.urls'
+
+AUTH_USER_MODEL = 'users.User' 
 
 REST_FRAMEWORK = {
     # YOUR SETTINGS
@@ -139,3 +143,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# LOGIN_REDIRECT_URL = 'api:home'
+# LOGOUT_REDIRECT_URL = 'api:index'
+LOGIN_URL = 'login'

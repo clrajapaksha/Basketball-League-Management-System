@@ -15,19 +15,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
-from teams import views as team_views
+
 
 urlpatterns = [
     # ADMIN SITE
     path('admin/', admin.site.urls),
 
+    # User ENDPOINT
+    path('api/', include('users.urls')),
+
     # API ENDPOINTS
-    path('api/v1/teams/', team_views.TeamList.as_view()),
-    path('api/v1/teams/<int:team_id>/', team_views.TeamDetail.as_view()),
-    path('api/v1/teams/<int:team_id>/players/', team_views.PlayerList.as_view()),
-    path('api/v1/teams/<int:team_id>/players/<int:player_id>/', team_views.PlayerDetail.as_view()),
+    path('api/v1/', include('teams.urls')),
 
     # SCHEMA
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),

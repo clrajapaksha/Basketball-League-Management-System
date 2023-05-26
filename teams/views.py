@@ -1,9 +1,15 @@
 from rest_framework import generics, mixins
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication, TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
+from users.permissions import IsAdminOrCoach
 from teams.models import Team, Player
 from teams.serializers import TeamSerializer, PlayerSerializer
 
 
 class TeamList(generics.ListCreateAPIView):
+    #authentication_classes = [SessionAuthentication, BasicAuthentication]
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAdminOrCoach]
     queryset = Team.objects.all()
     serializer_class = TeamSerializer
 
@@ -16,12 +22,16 @@ class TeamList(generics.ListCreateAPIView):
 
 
 class TeamDetail(generics.RetrieveUpdateDestroyAPIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAdminOrCoach]
     queryset = Team.objects.all()
     serializer_class = TeamSerializer
     lookup_url_kwarg = 'team_id'
 
 
 class PlayerList(generics.ListCreateAPIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAdminOrCoach]
     queryset = Player.objects.all()
     serializer_class = PlayerSerializer
 
@@ -32,6 +42,8 @@ class BestPlayerList(generics.ListAPIView):
 
 
 class PlayerDetail(generics.RetrieveUpdateDestroyAPIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAdminOrCoach]
     queryset = Player.objects.all()
     serializer_class = PlayerSerializer
     lookup_url_kwarg = 'player_id'
