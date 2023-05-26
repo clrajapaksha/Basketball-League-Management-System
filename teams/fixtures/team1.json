@@ -1,0 +1,62 @@
+[
+  {
+    "model": "teams.team",
+    "pk": 1,
+    "fields": {
+      "team_name": "Thunder Dunkers",
+      "coach_name": "W. Lennon"
+    }
+  },
+  {
+    "model": "teams.player",
+    "pk": 1,
+    "fields": {
+      "player_number": 23,
+      "first_name": "Jackson",
+      "last_name": "Thompson",
+      "height": 187.7,
+      "total_score": 235,
+      "total_games": 26,
+      "team": 1
+    }
+  },
+  {
+    "model": "teams.player",
+    "pk": 2,
+    "fields": {
+      "player_number": 45,
+      "first_name": "Sophia",
+      "last_name": "Rodriguez",
+      "height": 181.0,
+      "total_score": 278,
+      "total_games": 28,
+      "team": 1
+    }
+  },
+  {
+    "model": "teams.player",
+    "pk": 3,
+    "fields": {
+      "player_number": 18,
+      "first_name": "Marcus",
+      "last_name": "Johnson",
+      "height": 177.2,
+      "total_score": 367,
+      "total_games": 36,
+      "team": 1
+    }
+  },
+  {
+    "model": "teams.player",
+    "pk": 4,
+    "fields": {
+      "player_number": 15,
+      "first_name": "Olivia",
+      "last_name": "Davis",
+      "height": 184.1,
+      "total_score": 123,
+      "total_games": 19,
+      "team": 1
+    }
+  }
+]
